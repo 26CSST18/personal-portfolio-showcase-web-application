@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sharon Sweety.P | Portfolio Showcase</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        .portfolio-page {
+            padding: 75px 8%;
+            min-height: 75vh;
+        }
+
+        .portfolio-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .portfolio-heading h1 {
+            font-family: 'Playfair Display', serif;
+            color: #101b35;
+            font-size: 42px;
+        }
+
+        .portfolio-heading p {
+            color: #778198;
+            margin-top: 10px;
+        }
+
+        .portfolio-list {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-card {
+            background: white;
+            border: 1px solid #e6eaf2;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 12px 35px rgba(16, 27, 53, 0.06);
+            transition: 0.3s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(16, 27, 53, 0.10);
+        }
+
+        .portfolio-card h2 {
+            color: #101b35;
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        .portfolio-role {
+            color: #4169e1;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .portfolio-info {
+            color: #778198;
+            font-size: 14px;
+            margin: 9px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .portfolio-about {
+            margin-top: 20px;
+            color: #26334b;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .portfolio-card h3 {
+            color: #101b35;
+            margin-top: 22px;
+            font-size: 16px;
+        }
+
+        .project-card {
+            padding: 14px;
+            margin-top: 12px;
+            background: #f5f7ff;
+            border-radius: 9px;
+        }
+
+        .project-card strong {
+            color: #101b35;
+        }
+
+        .project-card p {
+            color: #778198;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .portfolio-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 22px;
+        }
+
+        .portfolio-links a {
+            color: #4169e1;
+            font-weight: 700;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        .empty-message {
+            text-align: center;
+            grid-column: 1 / -1;
+            padding: 40px;
+            color: #778198;
+        }
+
+        .create-link {
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        /* OCEAN THEME */
+
+        .portfolio-card.theme-ocean {
+            background: #ffffff;
+            border-top: 5px solid #4169e1;
+        }
+
+        /* MIDNIGHT THEME */
+
+        .portfolio-card.theme-midnight {
+            background: #101b35;
+            border-color: #263858;
+            border-top: 5px solid #8ca8ff;
+        }
+
+        .portfolio-card.theme-midnight h2,
+        .portfolio-card.theme-midnight h3,
+        .portfolio-card.theme-midnight .project-card strong {
+            color: #ffffff;
+        }
+
+        .portfolio-card.theme-midnight .portfolio-info,
+        .portfolio-card.theme-midnight .portfolio-about,
+        .portfolio-card.theme-midnight .project-card p {
+            color: #cbd5e8;
+        }
+
+        .portfolio-card.theme-midnight .portfolio-role,
+        .portfolio-card.theme-midnight .portfolio-links a {
+            color: #a9bdff;
+        }
+
+        .portfolio-card.theme-midnight .project-card {
+            background: #1d2b49;
+        }
+
+        /* FOREST THEME */
+
+        .portfolio-card.theme-forest {
+            background: #edf7ef;
+            color: #214b32;
+            border-top: 5px solid #398653;
+        }
+
+        .portfolio-card.theme-forest h2,
+        .portfolio-card.theme-forest h3,
+        .portfolio-card.theme-forest .project-card strong {
+            color: #214b32;
+        }
+
+        .portfolio-card.theme-forest .portfolio-role,
+        .portfolio-card.theme-forest .portfolio-links a {
+            color: #398653;
+        }
+
+        .portfolio-card.theme-forest .project-card {
+            background: #dcefe0;
+        }
+
+        .portfolio-card.theme-forest .portfolio-info,
+        .portfolio-card.theme-forest .portfolio-about,
+        .portfolio-card.theme-forest .project-card p {
+            color: #426b50;
+        }
+
+        /* SUNSET THEME */
+
+        .portfolio-card.theme-sunset {
+            background: #fff1e9;
+            color: #713d31;
+            border-top: 5px solid #ed8057;
+        }
+
+        .portfolio-card.theme-sunset h2,
+        .portfolio-card.theme-sunset h3,
+        .portfolio-card.theme-sunset .project-card strong {
+            color: #713d31;
+        }
+
+        .portfolio-card.theme-sunset .portfolio-role,
+        .portfolio-card.theme-sunset .portfolio-links a {
+            color: #d76543;
+        }
+
+        .portfolio-card.theme-sunset .project-card {
+            background: #ffe1d2;
+        }
+
+        .portfolio-card.theme-sunset .portfolio-info,
+        .portfolio-card.theme-sunset .portfolio-about,
+        .portfolio-card.theme-sunset .project-card p {
+            color: #895b4e;
+        }
+
+        @media (max-width: 650px) {
+            .portfolio-page {
+                padding: 45px 5%;
+            }
+
+            .portfolio-heading h1 {
+                font-size: 32px;
+            }
+
+            .portfolio-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="/" class="logo">Sharon Sweety.P<span>.</span></a>
+
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/forms.html">Create Portfolio</a></li>
+                <li><a href="/portfolio.html">My Portfolio</a></li>
+                <li><a href="/about.html">About Me</a></li>
+                <li><a href="/feedback.html">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="portfolio-page">
+
+        <div class="portfolio-heading">
+            <p class="eyebrow">YOUR PROFESSIONAL IDENTITY</p>
+            <h1>Portfolio Showcase</h1>
+            <p>Explore the professional profiles created on this platform.</p>
+
+            <a href="/forms.html" class="primary-btn create-link">
+                + Create Portfolio
+            </a>
+        </div>
+
+        <section id="portfolioList" class="portfolio-list">
+            <p class="empty-message">Loading portfolios...</p>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Sharon Sweety.P. All rights reserved.</p>
+        <p>Designed with purpose. Built with creativity.</p>
+    </footer>
+
+    <script>
+        const portfolioList = document.getElementById("portfolioList");
+
+        function createElement(tag, className, text) {
+            const element = document.createElement(tag);
+            element.className = className;
+            element.textContent = text;
+            return element;
+        }
+
+        function addLink(container, label, url) {
+            if (!url) return;
+
+            try {
+                const parsed = new URL(url);
+
+                if (!["http:", "https:"].includes(parsed.protocol)) return;
+
+                const link = document.createElement("a");
+                link.href = parsed.href;
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+                link.textContent = label;
+
+                container.appendChild(link);
+            } catch {
+                // Ignore invalid links.
+            }
+        }
+
+        function displayPortfolio(portfolio) {
+            const card = document.createElement("article");
+
+            const allowedThemes = [
+                "ocean",
+                "midnight",
+                "forest",
+                "sunset"
+            ];
+
+            const selectedTheme = allowedThemes.includes(portfolio.theme)
+                ? portfolio.theme
+                : "ocean";
+
+            card.className = "portfolio-card theme-" + selectedTheme;
+
+            card.appendChild(
+                createElement("h2", "", portfolio.fullName || "Unnamed")
+            );
+
+            card.appendChild(
+                createElement("p", "portfolio-role", portfolio.role || "")
+            );
+
+            card.appendChild(
+                createElement("p", "portfolio-info", "Email: " + (portfolio.email || ""))
+            );
+
+            card.appendChild(
+                createElement("p", "portfolio-info", "Course: " + (portfolio.course || ""))
+            );
+
+            if (portfolio.location) {
+                card.appendChild(
+                    createElement("p", "portfolio-info", "Location: " + portfolio.location)
+                );
+            }
+
+            if (portfolio.education) {
+                card.appendChild(
+                    createElement("h3", "", "Education")
+                );
+
+                card.appendChild(
+                    createElement("p", "portfolio-about", portfolio.education)
+                );
+            }
+
+            if (portfolio.about) {
+                card.appendChild(
+                    createElement("h3", "", "About Me")
+                );
+
+                card.appendChild(
+                    createElement("p", "portfolio-about", portfolio.about)
+                );
+            }
+
+            if (Array.isArray(portfolio.projects) && portfolio.projects.length) {
+                card.appendChild(
+                    createElement("h3", "", "Projects")
+                );
+
+                portfolio.projects.forEach(project => {
+                    const projectCard = document.createElement("div");
+                    projectCard.className = "project-card";
+
+                    projectCard.appendChild(
+                        createElement("strong", "", project.title || "Project")
+                    );
+
+                    if (project.description) {
+                        projectCard.appendChild(
+                            createElement("p", "", project.description)
+                        );
+                    }
+
+                    addLink(projectCard, "View Project", project.link);
+
+                    card.appendChild(projectCard);
+                });
+            }
+
+            const links = document.createElement("div");
+            links.className = "portfolio-links";
+
+            addLink(links, "GitHub", portfolio.github);
+            addLink(links, "LinkedIn", portfolio.linkedin);
+
+            card.appendChild(links);
+
+            portfolioList.appendChild(card);
+        }
+
+        async function loadPortfolios() {
+            try {
+                const response = await fetch("/api/portfolios");
+
+                if (!response.ok) {
+                    throw new Error("Unable to load portfolios.");
+                }
+
+                const portfolios = await response.json();
+
+                portfolioList.replaceChildren();
+
+                if (!portfolios.length) {
+                    const message = createElement(
+                        "div",
+                        "empty-message",
+                        "No portfolios have been created yet."
+                    );
+
+                    portfolioList.appendChild(message);
+                    return;
+                }
+
+                portfolios.forEach(displayPortfolio);
+
+            } catch (error) {
+                portfolioList.replaceChildren(
+                    createElement("p", "empty-message", error.message)
+                );
+            }
+        }
+
+        loadPortfolios();
+    </script>
+
+</body>
+</html>

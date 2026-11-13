@@ -1,0 +1,246 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Feedback | Sharon Sweety.P</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        .feedback-page {
+            min-height: 75vh;
+            padding: 75px 7%;
+            background: linear-gradient(135deg, #f7f9fd, #edf2ff);
+        }
+
+        .feedback-layout {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .feedback-info h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 45px;
+            line-height: 1.2;
+            color: #101b35;
+            margin-bottom: 20px;
+        }
+
+        .feedback-info h1 span {
+            color: #4169e1;
+        }
+
+        .feedback-info p {
+            color: #778198;
+            line-height: 1.9;
+            font-size: 15px;
+        }
+
+        .feedback-note {
+            margin-top: 30px;
+            padding: 20px;
+            background: #eaf0ff;
+            border-left: 4px solid #4169e1;
+            border-radius: 8px;
+            color: #26334b;
+            font-size: 14px;
+        }
+
+        .feedback-form {
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            border: 1px solid #e3e9f5;
+            box-shadow: 0 20px 55px rgba(16, 27, 53, 0.08);
+        }
+
+        .feedback-form h2 {
+            font-family: 'Playfair Display', serif;
+            color: #101b35;
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        .feedback-form label {
+            display: block;
+            color: #26334b;
+            font-size: 13px;
+            font-weight: 700;
+            margin: 18px 0 8px;
+        }
+
+        .feedback-form input,
+        .feedback-form textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #dce3f0;
+            border-radius: 9px;
+            background: #f9faff;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: 0.25s;
+        }
+
+        .feedback-form input:focus,
+        .feedback-form textarea:focus {
+            border-color: #4169e1;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.10);
+        }
+
+        .feedback-form textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .feedback-form button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 16px;
+            border: none;
+            border-radius: 9px;
+            background: #101b35;
+            color: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .feedback-form button:hover {
+            background: #4169e1;
+            transform: translateY(-2px);
+        }
+
+        #feedbackMessage {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        @media(max-width: 750px) {
+            .feedback-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .feedback-info h1 {
+                font-size: 36px;
+            }
+
+            .feedback-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="/" class="logo">Sharon Sweety.P<span>.</span></a>
+
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/forms.html">Create Portfolio</a></li>
+                <li><a href="/portfolio.html">My Portfolio</a></li>
+                <li><a href="/about.html">About Me</a></li>
+                <li><a href="/feedback.html">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="feedback-page">
+
+        <section class="feedback-layout">
+
+            <div class="feedback-info">
+
+                <p class="eyebrow">WE VALUE YOUR VOICE</p>
+
+                <h1>Your Feedback <span>Matters.</span></h1>
+
+                <p>
+                    Your suggestions and experiences help us
+                    improve this platform. Share your thoughts
+                    and let us know what you think.
+                </p>
+
+                <div class="feedback-note">
+                    Every suggestion is an opportunity to make
+                    something better. Thank you for taking the time
+                    to share your feedback!
+                </div>
+
+            </div>
+
+            <form class="feedback-form" id="feedbackForm">
+
+                <h2>Share Your Experience</h2>
+
+                <label for="feedbackName">Full Name *</label>
+                <input
+                    type="text"
+                    id="feedbackName"
+                    name="name"
+                    placeholder="Enter your name"
+                    maxlength="100"
+                    required
+                >
+
+                <label for="feedbackEmail">Email Address *</label>
+                <input
+                    type="email"
+                    id="feedbackEmail"
+                    name="email"
+                    placeholder="Enter your email"
+                    maxlength="254"
+                    required
+                >
+
+                <label for="feedbackContact">Contact Number</label>
+                <input
+                    type="tel"
+                    id="feedbackContact"
+                    name="contactNumber"
+                    placeholder="Enter your contact number"
+                    maxlength="20"
+                >
+
+                <label for="feedbackText">Your Feedback *</label>
+                <textarea
+                    id="feedbackText"
+                    name="message"
+                    placeholder="Write your suggestions or experience..."
+                    maxlength="2000"
+                    required
+                ></textarea>
+
+                <button type="submit">Submit Feedback</button>
+
+                <p id="feedbackMessage"></p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Sharon Sweety.P. All rights reserved.</p>
+        <p>Designed with purpose. Built with creativity.</p>
+    </footer>
+<script src="/js/feedback.js"></script>
+
+</body>
+</html>

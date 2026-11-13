@@ -1,0 +1,136 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Portfolio | Sharon Sweety.P</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="/" class="logo">Sharon Sweety.P<span>.</span></a>
+
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/forms.html">Create Portfolio</a></li>
+                <li><a href="/portfolio.html">My Portfolio</a></li>
+                <li><a href="/about.html">About Me</a></li>
+                <li><a href="/feedback.html">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="features">
+
+        <div class="section-heading">
+            <p class="eyebrow">BUILD YOUR IDENTITY</p>
+            <h2>Create Your Professional Portfolio</h2>
+            <p>Enter your details to create your personalised portfolio.</p>
+        </div>
+
+        <form id="portfolioForm" class="feature-card">
+
+            <h3>Personal Information</h3>
+
+            <label>Full Name *</label>
+            <input type="text" name="fullName" placeholder="Enter your full name" required>
+
+            <label>Role / Headline *</label>
+            <input type="text" name="role" placeholder="Example: Computer Science Student" required>
+
+            <label>Email Address *</label>
+            <input type="email" name="email" placeholder="Enter your email" required>
+
+            <label>Location</label>
+            <input type="text" name="location" placeholder="Your city">
+
+            <label>Gender</label>
+            <select name="gender">
+                <option value="">Prefer not to say</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <h3>Education</h3>
+
+            <label>Course *</label>
+            <input type="text" name="course"
+                placeholder="Example: B.Sc Computer Science with Statistics"
+                required>
+
+            <label>Education Details</label>
+            <textarea name="education" rows="4"
+                placeholder="Enter your educational background"></textarea>
+
+            <h3>About You</h3>
+
+            <label>About Me</label>
+            <textarea name="about" rows="5"
+                placeholder="Write a short professional introduction"></textarea>
+
+            <h3>Professional Links</h3>
+
+            <label>GitHub Profile</label>
+            <input type="url" name="github" placeholder="https://github.com/username">
+
+            <label>LinkedIn Profile</label>
+            <input type="url" name="linkedin" placeholder="https://www.linkedin.com/in/username">
+
+            <h3>Projects</h3>
+
+            <div id="projectsContainer">
+
+                <div class="project-entry">
+                    <label>Project Title</label>
+                    <input type="text" name="projectTitle[]" placeholder="Project name">
+
+                    <label>Project Description</label>
+                    <textarea name="projectDescription[]" rows="3"
+                        placeholder="Describe your project"></textarea>
+
+                    <label>Project Link</label>
+                    <input type="url" name="projectLink[]" placeholder="https://example.com">
+                </div>
+
+            </div>
+
+            <button type="button" id="addProject" class="secondary-btn">
+                + Add Another Project
+            </button>
+
+            <h3>Choose Your Portfolio Theme</h3>
+
+            <label>Theme</label>
+            <select name="theme">
+                <option value="ocean">Ocean Blue</option>
+                <option value="midnight">Midnight</option>
+                <option value="forest">Forest Green</option>
+                <option value="sunset">Sunset</option>
+            </select>
+
+            <button type="submit" class="primary-btn">
+                Create My Portfolio
+            </button>
+
+            <p id="formMessage"></p>
+
+        </form>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Sharon Sweety.P. All rights reserved.</p>
+        <p>Designed with purpose. Built with creativity.</p>
+    </footer>
+
+    <script src="/js/portfolio.js"></script>
+
+</body>
+</html>
